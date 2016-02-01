@@ -34,7 +34,7 @@ describe('For a given promiseA (pA)', function(){
   function thisReturnsHi () { return 'hi'; }
   function thisThrowsErr () { throw 'err'; }
 
-  xit('.then adds a new deferral to its handler group', function(){
+  it('.then adds a new deferral to its handler group', function(){
     promiseA.then();
     expect( promiseA.handlerGroups[0].forwarder instanceof Deferral ).toBe( true );
     // each handler group has its own forwarder
@@ -46,7 +46,7 @@ describe('For a given promiseA (pA)', function(){
 
   // Passing this may break your .catch from chapter 3. If that happens,
   // you will have to go back and fix .catch, taking this spec into account.
-  xit('.then returns the promise from that deferral', function(){
+  it('.then returns the promise from that deferral', function(){
     var promiseB = promiseA.then();
     expect( promiseB ).toBe( promiseA.handlerGroups[0].forwarder.$promise );
   });
